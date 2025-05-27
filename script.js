@@ -506,22 +506,6 @@ function removeFirstWeeklyNews() {
 
 
 
-// Moving text section
-// function scrollText() {
-//     console.log('DOM fully loaded and parsed');
-//     const textElement = document.getElementById("scrollingText");
-//     textElement.innerHTML=``;
-//     const newsItems = result.slice(0, 5);
-//     newsItems.forEach((item, index) => {
-//         const newsText = document.createElement("span");
-//         newsText.textContent = `${index + 1}. ${item.title} `;
-//         newsText.style.marginRight = "20px"; // Add some space between items
-//         textElement.appendChild(newsText);
-//     });
-//     const duplicateText = textElement.cloneNode(true); // Clone the original text
-//     document.querySelector(".news-update").appendChild(duplicateText); // Append duplicate
-// }
-
 function scrollText() {
     console.log('DOM fully loaded and parsed');
     const textElement = document.getElementById("scrollingText");
