@@ -504,8 +504,6 @@ function removeFirstWeeklyNews() {
     latestNewsContainer.children[0].remove(); // Remove the first news card
 }
 
-
-
 function scrollText() {
     console.log('DOM fully loaded and parsed');
     const textElement = document.getElementById("scrollingText");
@@ -517,6 +515,7 @@ function scrollText() {
     newsItems.forEach((item, index) => {
         fullText += `${index + 1}. ${item.title}   `;
     });
+    console.log('Full text:', fullText);
 
     textElement.textContent = fullText; // Assign all text at once
 }

@@ -40,6 +40,15 @@ body {
 
 
 /* News Update Bar */
+.news-update {
+    background-color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+}
+
 
 .news-update span {
     color: red;
@@ -296,32 +305,53 @@ img[src="images/Icons/left-arrow.png"]:hover {
 
 
 /* General Footer Styles */
-.site-footer {
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    padding: 1.5rem;
+.footer_lower_section {
+  height: 10vh;
+  display: flex;
+}
+.footer_links {
+  width: 60%;
+
+}
+.footer_links ul li {
+  list-style: none;
+  margin-right: 1.2%;
+  padding: 1.5%;
+  font-size: 1.15em;
+}
+.footer_links ul li a {
+  color: #504A4B;
+  text-decoration: none;
+}
+.footer_links ul {
+  display: inline-block;
+  display: flex;
+  margin-top: 2.1%;
+  margin-left: 5%;
+  
+}
+.footer_copyright {
+  width: 40%;
+  font-size: 1.1em;
+  
+}
+.footer_copyright p {
+  color: #504A4B;
+  width: 75%;
+  padding-top: 4%;
+  padding-left: 10%;
+}
+.footer_copyright p strong {
+  color: black;
 }
 
-/* Footer Links */
-.footer-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 1rem 0;
+
+.footer_links ul li:hover {
+  font-size: 1.4em;
+  text-decoration:line-through
 }
 
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease-in-out;
-}
 
-.footer-links a:hover {
-    color: #fdb813; /* Highlight effect */
-}
 
 /* Bottom Footer */
 .footer-bottom {
