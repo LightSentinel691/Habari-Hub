@@ -73,7 +73,7 @@ const getUserCity = async () => {
 getUserCity();
 getNewsfromApi();
 getLatestNewsfromApi();
-// getMustReadNewsfromApi();
+getMustReadNewsfromApi();
 
 
 
@@ -517,5 +517,5 @@ function scrollText() {
     });
     console.log('Full text:', fullText);
 
-    textElement.textContent = fullText; // Assign all text at once
+    textElement.textContent = fullText;
 }

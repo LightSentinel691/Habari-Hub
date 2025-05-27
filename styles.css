@@ -300,9 +300,9 @@ img[src="images/Icons/left-arrow.png"]:hover {
 
 /* General Footer Styles */
 .footer_lower_section {
-  background-color: #504a4b;
   height: 10vh;
   display: flex;
+  margin-block-end: 3rem;
 }
 .footer_links {
   width: 60%;
