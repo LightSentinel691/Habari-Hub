@@ -8,8 +8,8 @@ body {
 
 /* Moving Text  */
 header {
-  color: white;
-  background-color: black;
+  color: #343434;
+  background-color: #DCDCDC;
   display: flex;
   justify-content: center;
   align-items: center;
