@@ -309,17 +309,19 @@ img[src="images/Icons/left-arrow.png"]:hover {
 
 /* General Footer Styles */
 .footer_lower_section {
-  height: 10vh;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
-  margin-block-end: 3rem;
+  background-color: #D1D0CE;
 }
 .footer_links {
   width: 60%;
+  display: flex;
+  align-items: center;
 }
 .footer_links ul li {
-  list-style: none;
-  margin-right: 1.2%;
+  display: flex;
+  margin-right: 10%;
   padding: 1.5%;
   font-size: 1.15em;
 }
@@ -370,9 +372,13 @@ img[src="images/Icons/left-arrow.png"]:hover {
   .main-card img {
     width: 100%;
   }
-  .footer-links {
-    flex-direction: column;
-    gap: 0.5rem;
+  .footer_links {
+    width: 100%;
+    text-align: center;
+  }
+  .footer_copyright {
+    text-align: center;
+    width: 100%
   }
   
 }
