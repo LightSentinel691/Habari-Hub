@@ -379,10 +379,39 @@ select:focus {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   outline: none;
 }
-#btn {
-  width: 8rem;
-  padding: 10px;
+
+/* Must read news section */
+.sidebar .news2-item {
+  margin-bottom: 5%;
+  display: flex;
+  height:auto;
 }
+
+.sidebar .news2-item img {
+  margin-inline-end: 3%;
+  height: 14vh;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.sidebar .news2-item h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.sidebar .news2-item p {
+  font-size: 1rem;
+  color: #666;
+}
+.news2-item-div2 {
+  flex: 4;
+  margin-inline-start: 1%;
+}
+.news2-item-div1 {
+  flex: 1
+}
+
 
 
 
