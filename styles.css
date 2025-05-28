@@ -358,6 +358,37 @@ img[src="images/Icons/left-arrow.png"]:hover {
   border-top: 1px solid #444;
 }
 
+select {
+  width: 14rem;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  margin-inline-end: 2%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:hover {
+  border-color: #007bff;
+}
+
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+#btn {
+  width: 8rem;
+  padding: 10px;
+}
+
+
+
+
+
+
 /* Responsive Design */
 @media (max-width: 800px) {
   .main-card {
@@ -384,3 +415,4 @@ img[src="images/Icons/left-arrow.png"]:hover {
   }
   
 }
+

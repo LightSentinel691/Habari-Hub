@@ -1,13 +1,14 @@
 const leftArrow = document.getElementById('left-arrow');
 const rightArrow = document.getElementById('right-arrow');
 const latestMore = document.getElementById('latest_news_more');
-const weeklyMore = document.getElementById("weekly-highlights-more");
+const selectElement = document.getElementById('category');
 let articleNumber;
 let lastNewsResultNumber;
 let weeklyHighlightsNumber;
 const result = [];
 const latestNewsResult = [];
 const mustReadNewsResult = [];
+const customUserNews =[];
 
 
 
@@ -35,9 +36,12 @@ rightArrow.addEventListener('click', () => {
 latestMore.addEventListener('click', () => {
     seeMoreNews();
 });
-weeklyMore.addEventListener('click', () => {       
-    seeMoreWeeklyHighlights();
+selectElement.addEventListener('change', function () {
+  console.log("Running custom user information");
+  const selectedValue = selectElement.value;
+  getCustomSearchElement(selectedValue);
 });
+
 
 
 
@@ -519,3 +523,74 @@ function scrollText() {
 
     textElement.textContent = fullText;
 }
+
+function getUserSelectedData() {
+    const latestNewsContainer = document.querySelector('.news-grid');
+    latestNewsContainer.innerHTML = ''; // Clear previous content
+    for (let i = 0; i < 4 && i < customUserNews.length; i++) {
+        const article = customUserNews[i];
+        const articleElement = document.createElement('div');
+        articleElement.classList.add('news-card');
+        let description = article.description || 'No description available.';
+        // Truncate description if it's too long
+        if (description.length > 150) {
+            description = description.substring(0, 150) + '...';
+        }
+
+        articleElement.innerHTML = `
+            <img src="${article.image_url || 'images/default.jpg'}" alt="Article Image" class="latest-news-image">
+            <h2>${article.title}</h2>
+            <p>${description}</p>
+            <a href="${article.link}" target="_blank">Read more</a>
+            <p><strong>Published on:</strong> ${new Date(article.pubDate).toLocaleDateString()}</p>
+        `;
+        articleElement.style.position = "relative";
+        const image = articleElement.querySelector('img');
+        const header = articleElement.querySelector('h2');
+        const paragraphs = articleElement.querySelectorAll("p");
+        const anchor = articleElement.querySelector('a');
+        image.style.height = '27vh';
+        header.style.fontSize = '1.4em';
+        header.style.marginInlineStart = "3%";
+        header.style.marginInlineEnd = "3%";
+        paragraphs[0].style.fontSize = "1.1em";
+        paragraphs[0].style.marginInlineStart = "3%";
+        paragraphs[0].style.marginInlineEnd = "3%";
+        paragraphs[0].style.marginBlockEnd = "12%"; // Set the first paragraph to bold
+        anchor.style.position = "absolute";
+        anchor.style.bottom = "0";
+        anchor.style.left = "0";
+        anchor.style.marginInlineStart = "3%";
+        anchor.style.marginBlockEnd = "3%";      
+        paragraphs[paragraphs.length - 1].style.fontSize = "0.9em";
+        paragraphs[paragraphs.length - 1].style.display = "inline-block";
+        paragraphs[paragraphs.length - 1].style.float = "right";
+        paragraphs[paragraphs.length - 1].style.marginTop = "0"; 
+        paragraphs[paragraphs.length - 1].style.position = "absolute";
+        paragraphs[paragraphs.length - 1].style.bottom = "0";
+        paragraphs[paragraphs.length - 1].style.right = "0";
+        paragraphs[paragraphs.length - 1].style.marginInlineStart = "3%";
+        paragraphs[paragraphs.length - 1].style.marginInlineEnd = "3%";
+        latestNewsContainer.appendChild(articleElement);
+    }
+}
+
+
+
+
+async function getCustomSearchElement(query) {
+    try {
+        const response = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_79d5df0bbe5f49b5984e94b2cd6dc4ad&category=${query}&language=en`);
+        const data = await response.json();
+        if (data.status !== 'success') {
+            throw new Error('Failed to fetch news data');
+        }
+        data.results = data.results.slice(0, 6);
+        customUserNews.length = 0;
+        customUserNews.push(...data.results);
+        getUserSelectedData();
+    } catch (error) {
+        console.error('Error fetching news:', error);
+    }
+}
+
