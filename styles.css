@@ -7,6 +7,15 @@ body {
 }
 
 /* Moving Text  */
+header {
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  font-size: 30px;
+}
 
 .news-update {
   white-space: nowrap;
@@ -89,7 +98,7 @@ body {
   top: 10%;
   margin-inline-start: 2%;
   padding: 2% 3%;
-  background-color: #fff;
+  background-color: #DCDCDC;
 }
 
 .main-article_text h1 {
@@ -302,6 +311,7 @@ img[src="images/Icons/left-arrow.png"]:hover {
 .footer_lower_section {
   height: 10vh;
   display: flex;
+  flex-wrap: wrap;
   margin-block-end: 3rem;
 }
 .footer_links {
@@ -351,7 +361,7 @@ img[src="images/Icons/left-arrow.png"]:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .main-card {
     flex-direction: column;
     text-align: center;
@@ -364,4 +374,5 @@ img[src="images/Icons/left-arrow.png"]:hover {
     flex-direction: column;
     gap: 0.5rem;
   }
+  
 }
