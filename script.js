@@ -9,6 +9,7 @@ const result = [];
 const latestNewsResult = [];
 const mustReadNewsResult = [];
 const customUserNews =[];
+let countryCode;
 
 
 
@@ -59,7 +60,13 @@ const getUserCity = async () => {
         const data = await response.json();
         console.log(data);
         const city = data.results[0].components.county || data.results[0].components.town || data.results[0].components.state;
+        countryCode = data.results[0].components.country_code || 'ke'
         console.log(`User's county: ${city}`);
+        console.log("Country code");
+        console.log(countryCode);
+        getNewsfromApi();
+        getLatestNewsfromApi();
+        getMustReadNewsfromApi();
       } catch (error) {
         console.error('Error fetching city:', error);
       }
@@ -75,15 +82,12 @@ const getUserCity = async () => {
 
 //Here we have the running of our program
 getUserCity();
-getNewsfromApi();
-getLatestNewsfromApi();
-getMustReadNewsfromApi();
 
 
 
 async function getNewsfromApi() {
     try {
-        const response = await fetch('https://newsdata.io/api/1/latest?apikey=pub_79d5df0bbe5f49b5984e94b2cd6dc4ad&country=ke&language=en&category=politics');
+        const response = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_79d5df0bbe5f49b5984e94b2cd6dc4ad&country=${countryCode}&language=en&category=politics`);
         const data = await response.json();
         if (data.status !== 'success') {
             throw new Error('Failed to fetch news data');
@@ -168,7 +172,7 @@ function displayHeaderSidebarNews() {
 
 async function getLatestNewsfromApi() {
     try {
-        const response = await fetch('https://newsdata.io/api/1/latest?apikey=pub_79d5df0bbe5f49b5984e94b2cd6dc4ad&q=Nairobi&language=en&category=business,crime,health,technology,top&country=ke');
+        const response = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_79d5df0bbe5f49b5984e94b2cd6dc4ad&q=Nairobi&language=en&category=business,crime,health,technology,top&country=${countryCode}`);
         const data = await response.json();
         if (data.status !== 'success') {
             throw new Error('Failed to fetch news data');
