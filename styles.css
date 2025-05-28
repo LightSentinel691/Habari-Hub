@@ -172,10 +172,6 @@ img[src="images/Icons/left-arrow.png"]:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-  }
-
   .main-article,
   .sidebar {
     margin-right: 0;
@@ -368,6 +364,9 @@ img[src="images/Icons/left-arrow.png"]:hover {
     flex-direction: column;
     text-align: center;
   }
+  .news-container {
+    display: block;
+  }
 
   .main-card img {
     width: 100%;
@@ -379,6 +378,9 @@ img[src="images/Icons/left-arrow.png"]:hover {
   .footer_copyright {
     text-align: center;
     width: 100%
+  }
+  .main-content {
+    display: block;
   }
   
 }
